@@ -14,12 +14,12 @@ class DB{
 
         try{
 
-            self::$conn = new \PDO("mysql:host= ".self::$db_host."; 
-            dbname= ".self::$db_name, 
+            self::$conn = new \PDO("mysql:host=".self::$db_host."; 
+            dbname=".self::$db_name, 
             self::$db_username, self::$db_password,
-            array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET NAMES UTF-8"));
-            self::$conn = setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$conn = setAttribute(PDO::ATTR_EMULATE, false);
+            array(\PDO::MYSQL_ATTR_INIT_COMMAND=>"set names utf8"));
+            self::$conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            self::$conn->setAttribute(\PDO::ATTR_EMULATE_PREPARES, false);
 
 
         }catch(Exception $e){
@@ -27,7 +27,7 @@ class DB{
             exit($e->getMessage());
         }
 
-        return self::conn;
+        return self::$conn;
         
     }
 
