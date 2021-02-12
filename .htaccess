@@ -4,7 +4,7 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 
 
-RewriteRule ^(.*)$ index.php?url=$1
+RewriteRule ^(.*)$ index.php?endpoint=$1
 
 <IfModule mod_headers.c>
     Header set Access-Control-Allow-Origin "*"

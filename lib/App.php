@@ -31,14 +31,14 @@ class App{
     private function _setService(){
 
         $this->service = !empty($this->endpoint[0]) ? SERVICES_PATH.'\\'.ucfirst($this->endpoint[0]) : null;
-        array_shift($this->endpoint);
+        $this->endpoint ? array_shift($this->endpoint) : null;
     }
 
 
     private function _setAction(){
 
         $this->action = !empty($this->endpoint[0]) ? $this->endpoint[0] : null;
-        array_shift($this->endpoint);
+        $this->endpoint ? array_shift($this->endpoint) : null;
 
     }
 
@@ -89,7 +89,7 @@ class App{
     *@param array $data
     *@param int $status
     **/
-    public static function _response(array $data, int $status = 200) {
+    public static function _response($data, int $status = 200) {
 
         header("HTTP/1.1 " . $status . " " . self::_responseStatus($status));
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
@@ -97,7 +97,7 @@ class App{
     }
 
     /**
-     * Return HTTP Status based on defined code
+     * Return the HTTP status based on code
      * @param int $code 
      * @return string 
      */
