@@ -4,10 +4,10 @@ namespace lib;
 
 class DB{
 
-    private static $db_host = "localhost";
-    private static $db_username = "root";
-    private static $db_password = "rob080594";
-    private static $db_name = "api";
+    private static $db_host = "db host";
+    private static $db_username = "db user";
+    private static $db_password = "db password";
+    private static $db_name = "db name";
     protected static $conn;
 
     /** 
