@@ -4,14 +4,16 @@
 This API has only demonstrative purpose, it´s an API used to fetch, edit or remove users data from server.
 
 #Overview
-Please, for testing use Postman, Insomnia or another API tool your preference. It´s built in PHP 7.4.8 and MySQL MariaDB, all POST requests should be sent in JSON, all responses you will get in JSON.
 
-Important: For using the API you need to change database connection parameters in lib\DB.php file for your mysql credentials and database name.
+    Please, for testing use Postman, Insomnia or another API tool your preference. It´s built in PHP 7.4.8 and MySQL MariaDB, all POST requests should be sent in JSON, all responses you will get in JSON.
+
+    Important: For using the API you need to change database connection parameters in lib\DB.php file for your mysql credentials and database name.
 
 You don´t need to change anything more, all endpoint will be read dynamically.
 
 #Authentication
-This API has no any security layer implemented it´s only demonstrative purpose.
+    
+    This API has no any security layer implemented it´s only demonstrative purpose.
 
 #Documentation
 
