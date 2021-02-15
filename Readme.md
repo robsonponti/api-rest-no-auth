@@ -24,7 +24,8 @@ This API has no any security layer implemented it´s only demonstrative purpose.
     DELETE /api/users/delete/{$id}
 
 
-All endpoints should contain a valid action as shown above otherwise you will get a 400 Bad Request as shown below.
+All endpoints should contain a valid action as shown above otherwise you will get a 400 Bad Request.
+Invalid request example:
 
 Request:
 
