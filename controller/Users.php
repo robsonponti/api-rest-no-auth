@@ -6,25 +6,32 @@ use lib\App;
 use model\UsersModel;
 
 class Users extends UsersModel{
-
+    
     private $id;
     private $name;
     private $email;
     private $gender;
     private $birthdate;
 
-    public function _setId($id){
+    /**
+     * @access public
+     * @param int $id User id
+     * @return void
+     */
+    public function _setId(int $id){
 
-        if(is_numeric($id)){
+        if(is_integer($id)){
 
             $this->id = $id;
 
-        }else{
-
-            exit();
         }
     }
 
+    /**
+     * @access public
+     * @param string $email User email
+     * @return void
+     */
     public function _setEmail(string $email){
 
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
@@ -34,6 +41,11 @@ class Users extends UsersModel{
         }
     }
 
+    /**
+     * @access public
+     * @param string $birthdate User birthdate
+     * @return void
+     */
     public function _setBirthDate(string $birthdate){
 
         $d = \DateTime::createFromFormat('Y-m-d', $birthdate);
@@ -45,6 +57,11 @@ class Users extends UsersModel{
 
     }
 
+    /**
+     * @access public
+     * @param string $name User name
+     * @return void
+     */
     public function _setName(string $name){
 
         if(!empty($name) && strlen($name) > 0){
@@ -54,6 +71,11 @@ class Users extends UsersModel{
         }
     }
 
+    /**
+     * @access public
+     * @param int $gender User gender type
+     * @return void
+     */
     public function _setGender(int $gender){
 
         if(is_integer($gender) && ($gender == 1 || $gender == 2)){
@@ -64,30 +86,53 @@ class Users extends UsersModel{
 
     }
 
+
+    /**
+     * @access public
+     * @return string User name
+     */
     public function _getName(){
 
         return $this->name;
 
     }
 
+
+    /**
+     * @access public
+     * @return int User id
+     */
     public function _getId(){
 
         return $this->id;
 
     }
 
+
+    /**
+     * @access public
+     * @return string User email
+     */
     public function _getEmail(){
 
         return $this->email;
 
     }
 
+    /**
+     * @access public
+     * @return string User birthdate
+     */
     public function _getBirthDate(){
 
         return $this->birthdate;
 
     }
 
+    /**
+     * @access public
+     * @return int User gender type
+     */
     public function _getGender(){
 
         return $this->gender;
@@ -95,9 +140,10 @@ class Users extends UsersModel{
     }
 
 
-    /** Get User by id
+    /** 
+    *@access public
     *@param int $userid 
-    *@return void
+    *@return object Success|Fail message
     */
     public function get(int $userid=null){
         
@@ -130,8 +176,9 @@ class Users extends UsersModel{
         }
     }
 
-    /** Get All Users
-    *@return void
+    /** 
+    *@access public
+    *@return object Success|Fail message
     */
     public function getAll(){
         
@@ -166,6 +213,10 @@ class Users extends UsersModel{
         
     }
 
+    /**
+     * @access public 
+     * @return void|object Fail message 
+     */
 
     public function create(){
 
@@ -196,8 +247,11 @@ class Users extends UsersModel{
 
     }
 
-
-
+    /**
+     * @access public
+     * @param int $id User id
+     * @return object Success|Fail message
+     */
     public function delete(int $id=null){
 
         App::_validateMethod("DELETE");
@@ -246,7 +300,10 @@ class Users extends UsersModel{
     }
 
 
-
+    /**
+     * @access public 
+     * @return void|object Fail message
+     */
     public function update(){
 
         App::_validateMethod("PUT");
@@ -287,7 +344,10 @@ class Users extends UsersModel{
 
     }
 
-
+    /**
+     * @access private
+     * @return object Success|Fail message
+     */
     private function save(){
 
         if(!$this->id){

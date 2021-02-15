@@ -7,11 +7,12 @@ class DB{
     private static $db_host = "localhost";
     private static $db_username = "root";
     private static $db_password = "rob080594";
-    private static $db_name = "oskon_api";
+    private static $db_name = "api";
     protected static $conn;
 
-    /*
-    * PDO MySQL Connection
+    /** 
+    *@access public 
+    *@return object MySQL PDO Instance
     */
     public function __construct(){
 

@@ -10,7 +10,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
     @date_default_timezone_set("Europe/Lisbon");
 
     /** Auto loading classes
-     *@param string $class class path
+     *@param string $class Class to be loaded
+     *@return array
      */
 
     spl_autoload_register(function($class){

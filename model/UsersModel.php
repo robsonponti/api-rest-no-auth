@@ -13,6 +13,10 @@ class UsersModel extends DB{
 
     }
 
+    /**
+     *@access public
+     *@return array|object Success|Fail fetching data from database
+     */
     public function findAll(){
 
       try{
@@ -39,7 +43,11 @@ class UsersModel extends DB{
       }
 
     }
-
+    /**
+     *@access public
+     *@param int $id User id
+     *@return array|object Success|Fail fetching data from database
+     */
     public  function find(int $userid){
 
       try{
@@ -65,6 +73,11 @@ class UsersModel extends DB{
       }      
     }
 
+    /**
+     *@access public
+     *@param int $userid User id
+     *@return boolean|object Success|Fail deleting data from database
+     */
     public function delete(int $userid){
 
         parent::$conn->beginTransaction();
@@ -98,6 +111,10 @@ class UsersModel extends DB{
 
     }
     
+    /**
+     *@access public
+     *@return boolean|object Success|Fail updating data into database
+     */
     public function update(){
 
       parent::$conn->beginTransaction();
@@ -136,10 +153,11 @@ class UsersModel extends DB{
       }  
 
     }
-
-
+    /**
+     *@access public
+     *@return boolean Success|Fail inserting data into database
+     */
     public function create(){
-
 
       parent::$conn->beginTransaction();
 

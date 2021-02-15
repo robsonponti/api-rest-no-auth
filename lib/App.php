@@ -13,6 +13,10 @@ class App{
     private $action;
     private $method;
 
+    /**
+     *@access public
+     *@return void
+     */
     public function __construct(){
 
         $this->_setEndPoint();
@@ -21,21 +25,30 @@ class App{
         $this->_setParams();
     }
 
-
+    /**
+     *@access private
+     *@return void
+     */
     private final function _setEndPoint(){
        
         $this->endpoint = !empty($_REQUEST['endpoint']) ? explode('/', $_REQUEST['endpoint']) : null;
 
     }
 
-
+    /**
+     *@access private
+     *@return void
+     */
     private function _setController(){
 
         $this->controller = !empty($this->endpoint[0]) ? 'controller\\'.ucfirst($this->endpoint[0]) : null;
         $this->endpoint ? array_shift($this->endpoint) : null;
     }
 
-
+    /**
+     *@access private
+     *@return void
+     */
     private function _setAction(){
 
         $this->action = !empty($this->endpoint[0]) ? $this->endpoint[0] : null;
@@ -43,14 +56,20 @@ class App{
 
     }
 
-
+    /**
+     *@access private
+     *@return void
+     */
     private function _setParams(){
 
         $this->params = !empty($this->endpoint[0]) ? $this->endpoint[0] : null;
 
     }
 
-
+    /**
+     *@access private
+     *@return object Fail message
+     */
     private final function _validateController(){
 
         if(!class_exists($this->controller)){
@@ -59,8 +78,11 @@ class App{
         }
     }
 
-
-    public function _validateAction(){
+    /**
+     *@access private
+     *@return object Fail message
+     */
+    private function _validateAction(){
 
         if(!method_exists($this->controller, $this->action)){
 
@@ -71,10 +93,10 @@ class App{
     }
 
     /**
-     * @param string $method Valid HTTP Method for request
-     * @return boolean
+     * @access public
+     * @param string $method HTTP Method used in request
+     * @return object|boolean Success|Fail 
      */
-
     public final function _validateMethod(string $method){
 
         if($_SERVER['REQUEST_METHOD'] != $method){
@@ -91,6 +113,10 @@ class App{
 
 
 
+    /**
+     * @access private
+     * @return void|string Success|Exception Message
+     */
     private function _open(){
 
         try{
@@ -105,11 +131,12 @@ class App{
 
 
     }
+
     /** 
-     * Prepare response for request sent    
-    * @param array $data
-    * @param int $status
-    * @return void
+    *@access public
+    * @param array $data Response Data to return in response body
+    * @param int $status HTTP Status to return in response body
+    * @return object Response body
     **/
     public static function _response(array $data, int $status = 200) {
 
@@ -119,11 +146,10 @@ class App{
     }
 
     /**
-     * HTTP status based on code
-     * @param int $code 
-     * @return string 
+     *@access private
+     *@param int $code HTTP Status code to return in response body
+     *@return string 
      */
-
     private final function _responseStatus(int $code) {
         
         $status = array(  
@@ -141,9 +167,9 @@ class App{
 
 
     /**
-     * @return void 
-     */
-
+    *@access public
+    *@return void 
+    */
     public function run(){
 
         $this->_validateController();
