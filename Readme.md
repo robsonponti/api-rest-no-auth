@@ -15,13 +15,13 @@ This API has no any security layer implemented it´s only demonstrative purpose.
 
 #Documentation
 
-#Endpoints
+#Endpoints:
 
-GET /api/users/get/{$id}
-GET /api/users/getAll
-POST /api/users/create
-PUT /api/users/update
-DELETE /api/users/delete/{$id}
+    GET /api/users/get/{$id}
+    GET /api/users/getAll
+    POST /api/users/create
+    PUT /api/users/update
+    DELETE /api/users/delete/{$id}
 
 
 All endpoints should contain a valid action as shown above otherwise you will get a 400 Bad Request as shown below.
