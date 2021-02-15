@@ -1,6 +1,7 @@
-#Users Api
+#Users Api REST
 
 #Introduction
+
 This API has only demonstrative purpose, it´s an API used to fetch, edit or remove users data from server.
 
 #Overview
