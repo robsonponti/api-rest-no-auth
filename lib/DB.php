@@ -10,6 +10,9 @@ class DB{
     private static $db_name = "oskon_api";
     protected static $conn;
 
+    /*
+    * PDO MySQL Connection
+    */
     public function __construct(){
 
         try{

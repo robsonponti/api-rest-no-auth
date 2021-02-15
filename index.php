@@ -6,7 +6,6 @@ header("Access-Control-Allow-Methods: *");
 header("Content-Type: application/json");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-    define('SERVICES_PATH', 'services');    
 
     @date_default_timezone_set("Europe/Lisbon");
 
